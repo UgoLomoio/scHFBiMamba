@@ -1,0 +1,50 @@
+# HF Mamba Subtyping Pipeline — GPU Requirements
+#
+# This codebase requires a CUDA-capable GPU with mamba_ssm and causal_conv1d.
+#
+# Installation order matters: install torch first, then mamba_ssm.
+
+# Core deep learning
+torch>=2.1.0
+numpy>=1.24.0
+pandas>=2.0.0
+
+# Mamba SSM (requires CUDA)
+# Install from source for your CUDA version:
+#   pip install causal-conv1d>=1.4.0
+#   pip install mamba-ssm>=2.0.0
+# Or see: https://github.com/state-spaces/mamba
+mamba-ssm>=2.0.0
+causal-conv1d>=1.4.0
+
+# Attribution / XAI
+shap>=0.44.0
+captum>=0.7.0
+
+# GSEA / enrichment
+gseapy>=1.0.0
+
+# Data processing
+scipy>=1.10.0
+statsmodels>=0.14.0
+scikit-learn>=1.3.0
+tqdm>=4.65.0
+openpyxl>=3.1.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+matplotlib-venn>=0.11.9
+
+# UMAP for latent space visualization
+umap-learn>=0.5.0
+
+# Optional: scanpy for DEG validation
+scanpy>=1.9.0
+
+# Classifier ablation (run_classifier_ablation.py)
+# XGBoost baseline (CPU)
+xgboost>=2.0.0
+# Optional: fvcore for exact FLOP counting. Not required — benchmark.py
+# falls back to analytical FLOP estimates when fvcore is absent.
+# fvcore>=0.1.5
